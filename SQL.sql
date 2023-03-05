@@ -1,0 +1,24 @@
+USE west2;
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user`(
+userId VARCHAR(20) PRIMARY KEY,
+userName VARCHAR(20) NOT NULL,
+`password` VARCHAR(20) NOT NULL,
+balance INT NOT NULL
+);
+DELETE FROM `user`;
+
+CREATE TABLE IF NOT EXISTS project(
+projectId INT PRIMARY KEY AUTO_INCREMENT,
+projectName VARCHAR(20) NOT NULL,
+requiredFund INT
+);
+
+CREATE TABLE IF NOT EXISTS proposer(
+proposerId INT PRIMARY KEY,
+proposerName VARCHAR(20) NOT NULL,
+raisedFund INT,
+image MEDIUMBLOB NOT NULL,
+projectId INT
+);
+SELECT * FROM `user`;

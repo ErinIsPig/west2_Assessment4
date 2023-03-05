@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ssm.mapper.ProjectMapper">
+
+    <!--List<Project> searchProject(String portion);-->
+    <select id="searchProject" resultType="Project">
+        select * from project where projectName like "%"#{portion}"%";
+    </select>
+
+    <!--List<Project> getAllProject();-->
+    <select id="getAllProject" resultType="Project">
+        select * from project;
+    </select>
+
+    <!--Project searchProjectByName(String projectName);-->
+    <select id="searchProjectByName" resultType="Project">
+        select * from project where projectName = #{projectName}
+    </select>
+
+    <!--Project getProjectById(int projectId);-->
+    <select id="getProjectById" resultType="Project">
+        select * from project where projectId = #{projectId};
+    </select>
+
+    <!--void updateRequiredFund(Project project, int requiredFund);-->
+    <update id="updateRequiredFund">
+        update project set requiredFund = #{requiredFund} where projectId = #{projectId};
+    </update>
+
+    <!--void deleteProject(Project project);-->
+    <delete id="deleteProject" >
+        delete from project where projectId = #{projectId};
+    </delete>
+
+</mapper>

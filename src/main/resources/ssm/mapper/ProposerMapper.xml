@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ssm.mapper.ProposerMapper">
+    <!--void insertInfo(Proposer proposer);-->
+    <insert id="insertInfo">
+        insert into proposer(proposerId,proposerName,raisedFund,image,projectId)values(#{proposerId},#{proposerName},#{raisedFund},#{image},#{projectId});
+    </insert>
+
+    <!-- List<Proposer> getAllProposer();-->
+    <select id="getAllProposer" resultType="Proposer">
+        select * from proposer;
+    </select>
+
+    <!--void putFund(Proposer proposer, int raisedFund);-->
+    <update id="putFund">
+        update proposer set raisedFund = #{raisedFund} where proposerId = #{proposerId};
+    </update>
+
+    <!--int getFund(Proposer proposer);-->
+    <select id="getFund" resultType="int">
+        select raisedFund from proposer where proposerId = #{proposerId};
+    </select>
+
+    <!--List<Integer> getAllProjectId();-->
+    <select id="getAllProjectId" resultType="int">
+        select projectId from proposer;
+    </select>
+
+</mapper>
